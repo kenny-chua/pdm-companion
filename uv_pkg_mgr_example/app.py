@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 import requests
 import time
-import text
+import resources.text as text
 
 # Initialize session state for page navigation if not already set
 if "current_page" not in st.session_state:
