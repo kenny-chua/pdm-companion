@@ -1,8 +1,8 @@
-import resources.ai as ai
-from resources.ai import ai_model
+import marvin
+from marvin import ai_model
 from pydantic import BaseModel, Field
 
-ai.settings.openai.api_key = 'sk-proj-qyw18WnAby266IKbQvIIT3BlbkFJXb1kEvR4467lNK4sFKh7'
+marvin.settings.openai.api_key = 'sk-proj-qyw18WnAby266IKbQvIIT3BlbkFJXb1kEvR4467lNK4sFKh7'
 
 @ai_model
 class Location(BaseModel):

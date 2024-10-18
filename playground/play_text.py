@@ -1,6 +1,7 @@
-user_inputs = [
+questions = [
     "How do I connect a Python application to a PostgreSQL database?",
-    "Can you help me build a REST API using Flask?"]
+    "Can you help me build a REST API using Flask?",
+]
 
 #     "I want to scrape data from websites using Python and BeautifulSoup.",
 #     "How do I deploy a Django application on Heroku?",
