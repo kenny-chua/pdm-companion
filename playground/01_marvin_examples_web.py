@@ -1,16 +1,26 @@
-import resources.ai as ai
-ai.settings.openai.api_key = 'sk-proj-qyw18WnAby266IKbQvIIT3BlbkFJXb1kEvR4467lNK4sFKh7'
+import marvin
 
-result = ai.classify(
-    "Marvin is so easy to use!",
-    labels=["positive", "negative"],
-)
-print(result)
+# Simple Classification
+def extract_sentiment():
+    sentiment = marvin.classify("Marvin is so easy to use!",labels=["positive", "negative"])
+    print(sentiment)
+    return sentiment
 
+# Simple Extraction
+def extract_features():
+    features = marvin.extract("I love my new phone's camera, but the battery life could be improved.", instructions="product features")
+    print(features)
+    return features
 
-features = ai.extract(
-    "I love my new phone's camera, but the battery life could be improved.",
-    instructions="product features",
-)
+# Classification Test
+def test_sentiment():
+    assert extract_sentiment() == "positive"
 
-print(features)
+# Extraction Test
+def test_features():
+    assert extract_features() == ["camera", "battery life"]
+
+extract_sentiment()
+extract_features()
+test_sentiment()
+test_features()
