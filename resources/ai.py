@@ -1,54 +1,38 @@
-# import marvin
-# from resources.text import user_inputs
+import marvin
 
-# def extraction_comparison(user_inputs):
-#     # Initialize empty dictionary
-#     extraction_results = []
+questions = ["How do I work with machine learning in Python?",
+"How can I build an API?",
+"How can I verify a data structure?",
+"How can I convert ISO time to human-readable time?",
+"How do I scrape a webpage?",
+"What should I use to handle SQL databases in Python?",
+"How can I create a GUI for my Python application?",
+"How can I parallelize tasks in Python?",
+"How can I test?",
+"What can I use to handle HTTP requests?",
+"How do I work with machine learning in Python?"]
 
-#     # Loop through potential extraction words
-#     for user_input in user_inputs:
-#         what_word_to_use = {
-#             "topics": marvin.extract(user_input, instructions="Retrieve topics"),
-#             "technology": marvin.extract(user_input, instructions="Retrieve technologies"),
-#             "concepts": marvin.extract(user_input, instructions="Retrieve concepts"),
-#             "subjects": marvin.extract(user_input, instructions="Retrieve subjects"),
-#             "skills": marvin.extract(user_input, instructions="Retrieve skills"),
-#             "domains": marvin.extract(user_input, instructions="Retrieve domains"),
-#             "keywords": marvin.extract(user_input, instructions="Retrieve keywords"),
-#             "entities": marvin.extract(user_input, instructions="Retrieve entities"),
-#         }
-#         # Append a dictionary containing the user input and its extraction results
-#         extraction_results.append({"user_input": user_input,"extractions": what_word_to_use})
-    
-#     # Return the list of results
-#     return extraction_results
+# Extract Topic
+def extract_subject(question):
+    subject = marvin.extract(question, instructions="From the question: {{ question }}, extract the main subject. Limit to 1.")
+    return subject
 
-# for key, value in what_word_to_use.items():
-#     print(f"{key.capitalize()}: {value}")
+# print(extract_subject())
+# extracted_subject = extract_subject()
 
+# Recommend Framework
+@marvin.fn
+def python_framework_recommendation(extracted_subject: str):
+    """
+    Recommend the most suitable Python framework or Module based on {{ extracted_subject }}. Just return the framework."
+    """
 
-# @marvin.fn
-# def ai_interpret_user_input(user_input: str) -> list:
-#     """
-#     Retrieve main technical concepts based on {{user_input}}
-#     """
-# print(ai_interpret_user_input(user_input))
+# print(python_framework_recommendation(extracted_subject))
 
-# @marvin.fn
-# def ai_response(user_input: str, concepts: str) -> str:
-#     """
-#     Respond in naturally language to confirm concepts on interest. Suggest relevant python frameworks related to the concepts.
-#     """
+# for question in questions:
+#     extracted_subject = extract_subject(question)
+#     recommended_framework = python_framework_recommendation(extracted_subject)
 
-# print(ai_response(user_input, concepts))
-
-# @marvin.fn
-# def list_tech(name:str) -> list[str]: """pick and appropriate framework for each topic."""
-
-# tech = list_tech(concepts)
-
-# print(tech)
-
-# one_tech = marvin.extract(tech, instructions="only 1 product")
-
-# print(one_tech)
+#     print(f"Question: {question}")
+#     print(f"Subject: {extracted_subject}")
+#     print(f"Recommended Framework: {recommended_framework}")
