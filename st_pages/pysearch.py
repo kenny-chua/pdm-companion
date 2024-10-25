@@ -1,38 +1,32 @@
 import streamlit as st
 import resources.ai as ai
 
-def pysearch():
-    with st.container():
-        # Get user input from the text area
-        user_input = st.text_area("Please enter your question:")
 
+def pysearch():
+    with st.container():    
+        # Display Title
+        st.title("PyBites Search")
+        
+        # Display Example Questions
         st.markdown("""
         Example questions:
-        * "How can I build an API?"
-        * "How can I verify a data structure?"
-        * "How can I convert ISO time to human-readable time?"
-        * "How do I scrape a webpage?"
-        * "What should I use to handle SQL databases in Python?"
-        * "How can I create a GUI for my Python application?"
-        * "How can I parallelize tasks in Python?"
-        * "How can I test my Python code?"
-        * "What can I use to handle HTTP requests?"
-        * "How do I work with machine learning in Python?"
+        - "How can I build an API?"
+        - "How can I verify a data structure?"
+        - "How can I convert ISO time to human-readable time?"
+        - "How do I scrape a webpage?"
+        - "What should I use to handle SQL databases in Python?"
+        - "How can I create a GUI for my Python application?"
+        - "How can I parallelize tasks in Python?"
+        - "How can I test my Python code?"
+        - "What can I use to handle HTTP requests?"
+        - "How do I work with machine learning in Python?"
         """)
-        for question in ai.questions:
-            extracted_subject = ai.extract_subject(question)
-            recommended_framework = ai.python_framework_recommendation(extracted_subject)
 
-            st.write(f"Question: {question}")
-            st.write(f"Subject: {extracted_subject}")
-            st.write(f"Recommended Framework: {recommended_framework}")
+        # Text input
+        user_input = st.text_input("Please enter your question:")
 
-        
-        # Check if the "Submit" button is clicked
         if st.button("Submit"):
-            # Store the user input in session state for later use
-            st.session_state['user_input'] = user_input
-        else:
-            # set the session state to empty if no input is provided
-            st.session_state['user_input'] = ""
-    return st.session_state['user_input']
+            extracted_subject = ai.extract_subject(user_input)
+            recommended_framework = ai.python_framework_recommendation(extracted_subject)
+            string_response = f"It looks like you are interest in {extracted_subject}, I would recommend searching {recommended_framework}"
+            st.write(ai.generate_nl(string_response))
