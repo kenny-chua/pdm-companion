@@ -27,12 +27,3 @@ def extraction_comparison(questions:list):
 
 print(extraction_comparison(questions))
 
-# @marvin.fn
-# def ai_interpret_question(question: str) -> list:
-#     """
-#     Retrieve main technical concepts based on {{question}}
-#     """
-# print(ai_interpret_question("Can you help me build a REST API using Flask?"))
-# print(ai_interpret_question(extraction_comparison("Can you help me build a REST API using Flask?"))
-# for key, value in what_word_to_use.items():
-#     print(f"{key.capitalize()}: {value}")
