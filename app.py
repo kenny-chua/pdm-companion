@@ -1,6 +1,5 @@
 import streamlit as st
 
-# Local Imports
 from st_pages import home, testimonials, pysearch
 from resources import text
 
