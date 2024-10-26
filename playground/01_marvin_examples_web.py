@@ -19,8 +19,3 @@ def test_sentiment():
 # Extraction Test
 def test_features():
     assert extract_features() == ["camera", "battery life"]
-
-extract_sentiment()
-extract_features()
-test_sentiment()
-test_features()
