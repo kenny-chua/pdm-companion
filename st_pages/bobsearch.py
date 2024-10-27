@@ -51,36 +51,36 @@ def bobsearch():
             # Also add channel as a key in session state
             st.session_state['channel'] = 'All'
 
-        if "subject" in st.session_state:
-            extracted_subject = st.session_state["subject"]
+        # if "subject" in st.session_state:
+        #     extracted_subject = st.session_state["subject"]
 
         
 
-        # Channel Functionality
-        channels = ["All Content", "Pybites Articles", "Pybites Bite Exercises", "Pybites Podcasts", "Pybites YouTube Videos"]
-        selected_channel = st.radio("Select Content:", channels, index=0)
+            # Channel Functionality
+            channels = ["All Content", "Pybites Articles", "Pybites Bite Exercises", "Pybites Podcasts", "Pybites YouTube Videos"]
+            selected_channel = st.radio("Select Content:", channels, index=0)
 
-        with st.spinner("Searching....."):
-            # Do the Search
-            results = search_for_content(extracted_subject)
-            
-            if results:
-                results.sort(key=lambda x: x.channel)
-
-                if selected_channel != "All Content":
-                    
-                    # Group
-                    results = [r for r in results if r.channel == selected_channel]
-
+            with st.spinner("Searching....."):
+                # Do the Search
+                results = search_for_content(extracted_subject)
+                
                 if results:
-                    grouped_results = itertools.groupby(results, key=lambda x:x.channel)
-                    # Display
-                    for channel, group in grouped_results:
-                        group = list(group)
-                        st.markdown(f"## {channel}")
-                        for result in group:
-                            st.markdown(f" - [{result.title}]({result.url})")
+                    results.sort(key=lambda x: x.channel)
+
+                    if selected_channel != "All Content":
+                        
+                        # Group
+                        results = [r for r in results if r.channel == selected_channel]
+
+                    if results:
+                        grouped_results = itertools.groupby(results, key=lambda x:x.channel)
+                        # Display
+                        for channel, group in grouped_results:
+                            group = list(group)
+                            st.markdown(f"## {channel}")
+                            for result in group:
+                                st.markdown(f" - [{result.title}]({result.url})")
+                    else:
+                        st.write("No Results Found")
                 else:
-                    st.write("No Results Found")
-            else:
-                st.write("None")
+                    st.write("None")
