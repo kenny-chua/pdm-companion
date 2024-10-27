@@ -1,6 +1,6 @@
 import streamlit as st
 
-from st_pages import home, testimonials, pysearch
+from st_pages import home, testimonials, pysearch, bobsearch
 from resources import text
 
 # Initialize session state for page navigation if not already set
@@ -16,6 +16,8 @@ with st.sidebar:
         st.session_state.current_page = "Testimonials"
     if st.button("Pybites Search"):
         st.session_state.current_page = "Pybites Search"
+    if st.button("Bob's Search"):
+        st.session_state.current_page = "Bob's Search"
 
     st.header("About")
     st.markdown("Pybites Development Mindset")
@@ -40,3 +42,5 @@ with page_placeholder:
         testimonials.testimonials()
     elif st.session_state.current_page == "Pybites Search":
         pysearch.pysearch()
+    elif st.session_state.current_page == "Bob's Search":
+        bobsearch.bobsearch()
