@@ -90,7 +90,7 @@ This is all in no small part due to the lessons I learned through Pybites and th
 PDM Program Client
 """
 
-thematic_code = '''
+thematic_code = """
     def pybites_developer_program(you):
         journey = ["foundation", "code challenge", "build_app", "open_source"]
         growth_mindset = "julian sequeira"
@@ -102,7 +102,7 @@ thematic_code = '''
             return "SUCCESS!! 🎉👨‍💻👩‍💻"
 
         return "Keep Growing... 🌱"
-    '''
+    """
 
 html_code_block_style = """
     <div style="text-align: center; margin-top: 50px;">
@@ -147,5 +147,5 @@ user_inputs = [
     "Can I integrate machine learning models in a Flask web application?",
     "How do I set up continuous integration for a Python project with GitHub Actions?",
     "What are the best practices for structuring large Python projects?",
-    "How do I create virtual environments and manage dependencies in Python?"
+    "How do I create virtual environments and manage dependencies in Python?",
 ]
