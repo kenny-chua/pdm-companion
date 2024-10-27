@@ -2,6 +2,7 @@ import streamlit as st
 import time
 import resources.text as text
 
+
 def testimonials():
     with st.container():
         st.title("Testimonials")
@@ -12,7 +13,5 @@ def testimonials():
         for _ in range(6):  # Loop for displaying testimonials
             for testimonial in testimonials:
                 with placeholder:
-                    st.markdown(
-                        text.testimonial_style.format(testimonial), unsafe_allow_html=True
-                    )
+                    st.markdown(text.testimonial_style.format(testimonial), unsafe_allow_html=True)
                 time.sleep(2)

@@ -1,12 +1,13 @@
 import marvin
 
-# Extract Topic
+
 def extract_subject(question):
     subject = marvin.extract(
         question,
         instructions="From the question: {{ question }}, extract the main subject. Limit to 1.",
     )
     return subject
+
 
 @marvin.fn
 def python_framework_recommendation(extracted_subject: str):
