@@ -13,5 +13,8 @@ def testimonials():
         for _ in range(6):  # Loop for displaying testimonials
             for testimonial in testimonials:
                 with placeholder:
-                    st.markdown(text.testimonial_style.format(testimonial), unsafe_allow_html=True)
+                    st.markdown(
+                        text.testimonial_style.format(testimonial),
+                        unsafe_allow_html=True,
+                    )
                 time.sleep(2)

@@ -33,7 +33,9 @@ def pysearch():
 
         if st.button("Submit"):
             extracted_subject = ai.extract_subject(user_input)
-            recommended_framework = ai.python_framework_recommendation(extracted_subject)
+            recommended_framework = ai.python_framework_recommendation(
+                extracted_subject
+            )
             string_response = f"It looks like you are interest in {extracted_subject}, I would recommend searching {recommended_framework}"
             st.write(ai.generate_nl(string_response))
 
@@ -77,7 +79,9 @@ def pysearch():
                         results = [r for r in results if r.channel == selected_channel]
 
                     if results:
-                        grouped_results = itertools.groupby(results, key=lambda x: x.channel)
+                        grouped_results = itertools.groupby(
+                            results, key=lambda x: x.channel
+                        )
                         # Display
                         for channel, group in grouped_results:
                             group = list(group)

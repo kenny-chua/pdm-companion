@@ -22,7 +22,9 @@ def home():
         st.code(text.thematic_code, language="python")
 
         # Display Lottie Animation
-        lottie_animation = load_lottie_url("https://lottie.host/a1493733-00af-4bb1-b7eb-1aa86d9cabf1/TX5XiscOyh.json")
+        lottie_animation = load_lottie_url(
+            "https://lottie.host/a1493733-00af-4bb1-b7eb-1aa86d9cabf1/TX5XiscOyh.json"
+        )
         if lottie_animation:
             st_lottie(lottie_animation, height=100)
 
