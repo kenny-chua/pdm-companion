@@ -1,0 +1,10 @@
+name: Quality
+# https://docs.astral.sh/uv/guides/integration/github/
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
