@@ -11,14 +11,10 @@ def extract_subject(question):
 
 @marvin.fn
 def python_framework_recommendation(extracted_subject: str):
-    """
-    Recommend the most suitable Python framework or Module based on {{ extracted_subject }}. Just return the framework.
-    """
+    """Recommend the most suitable Python framework or Module based on {{ extracted_subject }}. Just return the framework."""
 
 
 # Natural Language Generation
 @marvin.fn
 def generate_nl(input: str):
-    """
-    With {{ input }}, rewrite sentence with correct grammar, punctuation and sentence structure. Remove any symbols, for example brackets and quotes that are not needed in a regular english sentence.
-    """
+    """With {{ input }}, rewrite sentence with correct grammar, punctuation and sentence structure. Remove any symbols, for example brackets and quotes that are not needed in a regular english sentence."""

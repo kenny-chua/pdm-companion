@@ -94,10 +94,10 @@ thematic_code = """
     def pybites_developer_program(you):
         journey = ["foundation", "code challenge", "build_app", "open_source"]
         growth_mindset = "julian sequeira"
-        
+
         for step in journey:
             you.take_step(step)
-        
+
         if you.mindset == f'listen to {growth_mindset} and you.reflect("progress"):
             return "SUCCESS!! 🎉👨‍💻👩‍💻"
 

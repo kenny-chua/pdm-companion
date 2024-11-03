@@ -1,10 +1,10 @@
-name: Quality
+name: Code Quality Checks
 # https://docs.astral.sh/uv/guides/integration/github/
 
 on:
     push:
         branches:
-            - main
+            -   main
     pull_request:
         branches:
-            - main
+            -   main

@@ -1,0 +1,34 @@
+[project]
+name = "pdm-companion"
+version = "0.1.0"
+description = "Companion App for PDM"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+author = [
+    {name = "Kenny Chua", email = "kenny.chua.edu@outlook.com"}
+]
+
+
+[tool.ruff]
+# Set the maximum line length to 100
+line-length = 100
+
+
+[tool.ruff.format]
+# Enable reformatting of code snippets in doctrings.
+docstring-code-format = true
+exclude = ["generated"]
+skip-magic-trailing-comma = true
+
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "C", "B", "N"]
+ignore = ["E501"]
+# Extend with pyupgrade checks
+extend-select = ["UP"]
+
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-to-top = ["src"]
