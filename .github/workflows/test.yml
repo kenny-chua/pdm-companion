@@ -28,9 +28,14 @@ jobs:
     -   name: Install the project
         run: uv sync --all-extras --dev
 
+    - name: Create results directory
+      run: mkdir -p pytest-results
+
     -   name: Run tests
         # Run test using `pytest`
         run: uv run pytest tests
+
+
 
     -   name: Upload Test Results on Failure
         if: failure()
