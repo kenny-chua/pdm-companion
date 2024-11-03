@@ -28,8 +28,8 @@ jobs:
     -   name: Install the project
         run: uv sync --all-extras --dev
 
-    -   name: Create results directory
-        run: mkdir -p pytest-results
+    -   name: Create results directory in root
+        run: mkdir -p $GITHUB_WORKSPACE/pytest-results
 
     -   name: Run tests
         # Run test using `pytest`
