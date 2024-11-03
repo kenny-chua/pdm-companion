@@ -1,4 +1,4 @@
-from ...src.pdm_companion.resources import ai as ai
+from src.pdm_companion.resources import ai as ai
 import pytest  # only needed to use fixtures
 
 
