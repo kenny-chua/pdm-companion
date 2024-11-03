@@ -1,5 +1,6 @@
 from src.pdm_companion.resources import ai as ai
 import pytest  # only needed to use fixtures
+from config import _openaisecret  # type: ignore  # noqa: F401
 
 
 # If the result type is a list
