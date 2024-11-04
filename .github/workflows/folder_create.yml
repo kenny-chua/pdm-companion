@@ -15,7 +15,7 @@ jobs:
         steps:
         -   name: Create Artifact Folder experiment
             run: |
-                mkdir -p artifacts
+                mkdir -p $GITHUB_WORKSPACE/artifacts
                 touch artifacts/artifact1.txt
                 touch artifacts/artifact2.txt
         -   name: Upload Artifact
