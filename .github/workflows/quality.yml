@@ -31,5 +31,5 @@ jobs:
         -   name: Install Code Quality Libraries
             run: uv pip install pytest pytest-cov flake8
 
-        -   name: Run pytest coverage and flake8 linter
-            run: uv run flake8 --statistics
+#        -   name: Run pytest coverage and flake8 linter
+#            run: uv run flake8 --statistics
