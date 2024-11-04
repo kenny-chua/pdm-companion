@@ -37,9 +37,8 @@ jobs:
         -   name: Run tests
             env:
                 OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY  }}
-            run: |
-                uv run pytest tests --junitxml=$GITHUB_WORKSPACE/pytest_results/pytest_report.xml
-                continue-on-error:true
+            run: uv run pytest tests --junitxml=$GITHUB_WORKSPACE/pytest_results/pytest_report.xml
+            continue-on-error: true
 
     upload-test-results:
         needs: backend-tests
