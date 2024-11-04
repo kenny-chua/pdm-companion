@@ -32,4 +32,4 @@ jobs:
             run: uv pip install pytest pytest-cov flake8
 
         -   name: Run pytest coverage and flake8 linter
-            run: flake8 --statistics
+            run: uv run flake8 --statistics
