@@ -39,7 +39,8 @@ jobs:
                 OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY  }}
             run: uv run pytest tests --junitxml=$GITHUB_WORKSPACE/pytest_results/pytest_report.xml
 
-        -   name: Upload Test Results on Failure
+        -   name: Upload Test Results
+            if: always()
             uses: actions/upload-artifact@v4
             with:
                 name: pytest-results
