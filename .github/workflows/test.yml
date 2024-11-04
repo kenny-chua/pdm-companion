@@ -10,36 +10,41 @@ on:
             -   main
 
 jobs:
-  backend-tests:
-    runs-on: ubuntu-latest
+    backend-tests:
+        runs-on: ubuntu-latest
 
-    steps:
-    -   name: Checkout code
-        uses: actions/checkout@v4
+        steps:
+        -   name: Checkout code
+            uses: actions/checkout@v4
 
-    -   name: Install uv
-        uses: astral-sh/setup-uv@v3
+        -   name: Install uv
+            uses: astral-sh/setup-uv@v3
 
-    -   name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-            python-version-file: ".python-version"
+        -   name: Set up Python
+            uses: actions/setup-python@v5
+            with:
+                python-version-file: ".python-version"
 
-    -   name: Install the project
-        run: uv sync --all-extras --dev
+        -   name: Install the project
+            run: uv sync --all-extras --dev
 
-    -   name: Create results directory in root
-        run: mkdir -p $GITHUB_WORKSPACE/pytest_results
+        -   name: Install pytest
+            run: uv pip install pytest
 
-    -   name: Run tests
-        run: uv run pytest tests --junitxml=$GITHUB_WORKSPACE/pytest_results/results.xml
+        -   name: Create results directory in root
+            run: mkdir -p $GITHUB_WORKSPACE/pytest_results
 
-    -   name: Verify pytest-results directory contents
-        run: ls -R $GITHUB_WORKSPACE/pytest_results
+        -   name: Run tests
+            env:
+                OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY  }}
+            run: pytest
 
-    -   name: Upload Test Results on Failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-            name: pytest-results
-            path: $GITHUB_WORKSPACE/pytest_results/
+        -   name: Verify pytest-results directory contents
+            run: ls -R $GITHUB_WORKSPACE/pytest_results
+
+        -   name: Upload Test Results on Failure
+            if: failure()
+            uses: actions/upload-artifact@v4
+            with:
+                name: pytest-results
+                path: $GITHUB_WORKSPACE/pytest_results/

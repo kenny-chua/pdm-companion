@@ -1,0 +1,25 @@
+name: Test Folder Creation
+
+on:
+    push:
+        branches:
+            -   main
+    pull_request:
+        branches:
+            -   main
+
+jobs:
+    test-folder-creation:
+        runs-on: ubuntu-latest
+
+        steps:
+        -   name: Create Artifact Folder Test
+            run: |
+                mkdir -p artifacts
+                ls -l artifacts
+        -   name: Download Artifact
+            uses: actions/download-artifact@v4
+            with:
+                name: my-artifact
+        -   name: Display structure of downloaded files
+            run: ls -R
