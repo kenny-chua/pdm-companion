@@ -38,7 +38,7 @@ def test_with_fixture_extract_subject(question_fixture):
         ("How can I convert ISO time to human-readable time?", ["ISO time"]),
         ("How do I scrape a webpage?", ["Scrape a Webpage"]),
         ("What should I use to handle SQL databases in Python?", ["SQL Databases in Python"]),
-        ("How can I create a GUI for my Python application?", ["GUI for Python Applications"]),
+        ("How can I create a GUI for my Python application?", ["GUI for Python Application"]),
         ("How can I parallelize tasks in Python?", ["parallelize tasks"]),
         ("How can I perform test my Python code?", ["Testing Python Code"]),
         ("What can I use to handle HTTP requests?", ["Http Requests"]),
