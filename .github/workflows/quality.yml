@@ -56,7 +56,7 @@ jobs:
             run: uv pip install mypy
 
         -   name: Run MyPy
-            run: pypy pdm-companion --check-untyped-defs --ignore-missing-imports
+            run: mypy pdm-companion --check-untyped-defs --ignore-missing-imports
 
         -   name: Upload Quality Results
             if: always()
