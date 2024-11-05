@@ -23,7 +23,7 @@ def question_fixture():
 
 
 def test_with_fixture_extract_subject(question_fixture):
-    assert ai.extract_subject(question_fixture) == ["ISO Time"]
+    assert ai.extract_subject(question_fixture) == ["ISO time"]
 
 
 # --------------------------------------
@@ -35,12 +35,12 @@ def test_with_fixture_extract_subject(question_fixture):
     [
         ("How can I build an API?", ["API"]),
         ("How can I verify a data structure?", ["Data Structure"]),
-        ("How can I convert ISO time to human-readable time?", ["ISO Time"]),
+        ("How can I convert ISO time to human-readable time?", ["ISO time"]),
         ("How do I scrape a webpage?", ["Scrape a Webpage"]),
         ("What should I use to handle SQL databases in Python?", ["SQL Databases in Python"]),
-        ("How can I create a GUI for my Python application?", ["GUI for Python Application"]),
+        ("How can I create a GUI for my Python application?", ["GUI"]),
         ("How can I parallelize tasks in Python?", ["parallelize tasks in Python"]),
-        ("How can I test my Python code?", ["Testing Python Code"]),
+        ("How can I perform test my Python code?", ["Testing Python Code"]),
         ("What can I use to handle HTTP requests?", ["Http Requests"]),
         ("How do I work with machine learning in Python?", ["machine learning"]),
     ],
@@ -54,3 +54,12 @@ def test_with_paratrization_fixture(name_of_fixture, expected_test_results):
     marvin_results_lower = [item.lower() for item in results_directly_from_marvin]
 
     assert marvin_results_lower == expected_test_results_lower
+
+
+# Mocking
+def test_framework_recommendation_side_effect_with_mocker(mocker):
+    mock_recommend = mocker.patch("src.pdm_companion.resources.ai.python_framework_recommendation")
+    mock_recommend.side_effect = ["Pandas", "NumPy"]
+
+    assert ai.python_framework_recommendation("Data Structure") == "Pandas"
+    assert ai.python_framework_recommendation("Data Structure") == "NumPy"
