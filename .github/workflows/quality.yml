@@ -10,7 +10,7 @@ on:
             -   main
 
 jobs:
-    build:
+    pre-commit-hook:
         runs-on: ubuntu-latest
 
         steps:
@@ -25,11 +25,26 @@ jobs:
             with:
                 python-version-file: ".python-version"
 
-        -   name: Install the project
-            run: uv sync --all-extras --dev
+        -   name: Install Dependencies
+            run: uv pip install pre-commit
 
-        -   name: Install Code Quality Libraries
-            run: uv pip install pytest pytest-cov flake8
+        -   name: Run pre-commit-hook
+            run: pre-commit run --all-files
 
-#        -   name: Run pytest coverage and flake8 linter
-#            run: uv run flake8 --statistics
+    mypy:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Set up Python
+                uses: actions/setup-python@v5
+                with:
+                    python-version-file: ".python-version"
+
+            -   name: Checkout code
+                uses: actions/checkout@v4
+
+            -   name: Install mypy
+                run: uv pip install mypy
+
+            -   name: Run MyPy
+                run: pypy pdm-companion --check-untyped-defs --ignore-missing-imports
