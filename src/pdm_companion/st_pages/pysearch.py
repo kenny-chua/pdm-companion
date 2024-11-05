@@ -56,14 +56,14 @@ def pysearch():
             #     extracted_subject = st.session_state["subject"]
 
             # Channel Functionality
-            channels = [
-                "All Content",
-                "Pybites Articles",
-                "Pybites Bite Exercises",
-                "Pybites Podcasts",
-                "Pybites YouTube Videos",
-            ]
-            selected_channel = st.radio("Select Content:", channels, index=0)
+            # channels = [
+            #     "All Content",
+            #     "Pybites Articles",
+            #     "Pybites Bite Exercises",
+            #     "Pybites Podcasts",
+            #     "Pybites YouTube Videos",
+            # ]
+            # selected_channel = st.radio("Select Content:", channels, index=0)
 
             with st.spinner("Searching....."):
                 # Do the Search
@@ -72,9 +72,9 @@ def pysearch():
                 if results:
                     results.sort(key=lambda x: x.channel)
 
-                    if selected_channel != "All Content":
-                        # Group
-                        results = [r for r in results if r.channel == selected_channel]
+                    # if selected_channel != "All Content":
+                    #     # Group
+                    #     results = [r for r in results if r.channel == selected_channel]
 
                     if results:
                         grouped_results = itertools.groupby(results, key=lambda x: x.channel)
