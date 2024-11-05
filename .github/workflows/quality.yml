@@ -49,6 +49,9 @@ jobs:
             with:
                 python-version-file: ".python-version"
 
+        -   name: Install the project
+            run: uv sync --all-extras --dev
+
         -   name: Install mypy
             run: uv pip install mypy
 
