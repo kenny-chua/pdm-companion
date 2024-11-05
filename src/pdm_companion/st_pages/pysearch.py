@@ -80,9 +80,9 @@ def pysearch():
                         grouped_results = itertools.groupby(results, key=lambda x: x.channel)
                         # Display
                         for channel, group in grouped_results:
-                            group = list(group)
+                            group_list = list(group)
                             st.markdown(f"## {channel}")
-                            for result in group:
+                            for result in group_list:
                                 st.markdown(f" - [{result.title}]({result.url})")
                     else:
                         st.write("No Results Found")
