@@ -25,7 +25,10 @@ jobs:
             with:
                 python-version-file: ".python-version"
 
-        -   name: Install Dependencies
+        -   name: Install the project
+            run: uv sync --all-extras --dev
+
+        -   name: Install pre-commit
             run: uv pip install pre-commit
 
         -   name: Run pre-commit-hook
