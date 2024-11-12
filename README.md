@@ -1,4 +1,15 @@
 # Pybites PDM Capstone Project - PDM Companion
 
-![PDM Companion App Features v1](docs/PDM-Companion-App-Features-rev1.png)
-![PDM Companion App Tools v1](docs/PDM-Companion-Tools-rev1.png)
+1. Clone Repository
+2. Create a `.env' file containing your own Open AI API Key
+
+    ```txt
+    OPENAI_API_KEY={API KEY}
+    ```
+
+3. Navigate to `src/pdm_companion`
+4. Run application
+
+    ```sh
+    streamlit run app.py
+    ```
